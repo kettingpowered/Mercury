@@ -150,28 +150,12 @@ publishing {
     }
 
     repositories {
-        /*
-        val sonatypeUsername: String? by project
-        val sonatypePassword: String? by project
-        if (sonatypeUsername != null && sonatypePassword != null) {
-            val url = if (isSnapshot) "https://oss.sonatype.org/content/repositories/snapshots/"
-                else "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
-            maven(url) {
-                credentials {
-                    username = sonatypeUsername
-                    password = sonatypePassword
-                }
+        maven("https://repo.kettingpowered.org/Ketting-Forks/") {
+            name = "kettingRepo-backup"
+            credentials {
+                username = System.getenv("KETTINGUSERNAME")
+                password = System.getenv("KETTINGPASSWORD")
             }
-        }
-         */
-        val url = if (isSnapshot) {
-            "https://papermc.io/repo/repository/maven-snapshots/"
-        } else {
-            "https://papermc.io/repo/repository/maven-releases/"
-        }
-        maven(url) {
-            credentials(PasswordCredentials::class)
-            name = "paper"
         }
     }
 }
