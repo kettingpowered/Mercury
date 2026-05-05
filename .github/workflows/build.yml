@@ -28,7 +28,7 @@ jobs:
         uses: gradle/gradle-build-action@v2
       - name: Build
         run: ./gradlew build --stacktrace
-      - name: Build with Gradle
+      - name: Publish
         if: "${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}"
         uses: gradle/gradle-build-action@v2.9.0
         with:
