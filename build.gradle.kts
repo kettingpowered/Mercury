@@ -157,6 +157,13 @@ publishing {
                 password = System.getenv("KETTINGPASSWORD")
             }
         }
+        maven("https://reposilite.c0d3m4513r.com/Ketting-Forks/") {
+            name = "Ketting-Backup"
+            credentials {
+                username = System.getenv("KETTINGUSERNAME")
+                password = System.getenv("KETTINGPASSWORD")
+            }
+        }
     }
 }
 
