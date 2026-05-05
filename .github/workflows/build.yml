@@ -28,16 +28,11 @@ jobs:
         uses: gradle/gradle-build-action@v2
       - name: Build
         run: ./gradlew build --stacktrace
-      - name: Determine Release Status
-        run: |
-          if [ "$(./gradlew properties | awk '/^version:/ { print $2; }' | grep '\-SNAPSHOT')" ]; then
-            echo "STATUS=snapshot" >> $GITHUB_ENV
-          else
-            echo "STATUS=release" >> $GITHUB_ENV
-          fi
-      - name: Publish
+      - name: Build with Gradle
         if: "${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}"
-        run: ./gradlew publish --stacktrace
+        uses: gradle/gradle-build-action@v2.9.0
+        with:
+          arguments: publish
         env:
           KETTINGUSERNAME: ${{ secrets.KETTINGUSERNAME }}
           KETTINGPASSWORD: ${{ secrets.KETTINGPASSWORD }}
