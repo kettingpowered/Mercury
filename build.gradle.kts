@@ -151,7 +151,7 @@ publishing {
 
     repositories {
         maven("https://repo.kettingpowered.org/Ketting-Forks/") {
-            name = "kettingRepo-backup"
+            name = "Ketting"
             credentials {
                 username = System.getenv("KETTINGUSERNAME")
                 password = System.getenv("KETTINGPASSWORD")
