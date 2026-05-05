@@ -39,5 +39,5 @@ jobs:
         if: "${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}"
         run: ./gradlew publish --stacktrace
         env:
-          KETTINGUSERNAME: "${{ secrets.KETTINGUSERNAME }}"
-          KETTINGPASSWORD: "${{ secrets.KETTINGPASSWORD }}"
+          KETTINGUSERNAME: ${{ secrets.KETTINGUSERNAME }}
+          KETTINGPASSWORD: ${{ secrets.KETTINGPASSWORD }}
